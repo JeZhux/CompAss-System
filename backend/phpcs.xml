@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="CompAss">
+    <description>PSR-12 coding standard for CompAss (NFR-24).</description>
+
+    <file>app/</file>
+    <file>database/migrations/</file>
+    <file>routes/</file>
+    <file>config/</file>
+
+    <rule ref="PSR12"/>
+</ruleset>

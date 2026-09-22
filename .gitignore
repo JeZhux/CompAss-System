@@ -1,0 +1,47 @@
+# CompAss root .gitignore — only important sources are tracked, secrets never pushed
+# Secrets / env (keep *.example templates only)
+backend/.env
+backend/.env.testing
+backend/.env.backup
+backend/.env.production
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+*.key
+*.pem
+
+# Dependencies / build output — never commit
+backend/vendor/
+backend/node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+backend/public/build/
+backend/public/hot
+
+# Laravel cache / logs / test artifacts
+backend/.phpunit.result.cache
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/logs/*
+backend/bootstrap/cache/*.php
+!backend/bootstrap/cache/.gitignore
+!backend/storage/framework/cache/data/.gitignore
+!backend/storage/framework/sessions/.gitignore
+!backend/storage/framework/views/.gitignore
+!backend/storage/logs/.gitignore
+
+# Explicit user exclusions
+.graphify/
+REVIEW_LOG.md
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

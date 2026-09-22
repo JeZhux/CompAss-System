@@ -1,0 +1,172 @@
+/* CompAss teacher workspace — ledger language matching tokens.css + app.css.
+   Flat, bordered, radius 5px. No shadows, no gradients. Motion is restrained:
+   one enter fade + transform/opacity-only interactions, reduced-motion safe. */
+
+.teacher-page { animation: teacherEnter 560ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes teacherEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Canonical .stat-card numerals live in src/styles/app.css — do not redefine here. */
+
+/* Canonical shared rhythm (.section-head, .warn/err/ok/block/note-line,
+   .field-err, .empty) lives in src/styles/app.css — do not redefine here. */
+
+/* Canonical .crumb / .detail-head / .row-list / .classroom-grid /
+   .classroom-card / .classroom-header / .tabbar live in src/styles/app.css.
+   Teacher keeps only the row background transition (transform/opacity-safe). */
+.row-list .row { transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1); }
+.classroom-card { transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 100ms; }
+
+/* Canonical pill .filter-chips lives in src/styles/app.css — do not redefine here. */
+
+.stream-item { border-bottom: 1px solid var(--line); padding: 16px 2px; }
+.stream-item .meta { font-size: 12px; color: var(--ink-faint); margin-bottom: 6px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.stream-item h4 { font-size: 14.5px; margin-bottom: 6px; font-family: var(--font-ui); font-weight: 600; }
+.stream-item p { margin: 0; color: var(--ink-soft); font-size: 13.5px; }
+.file-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 5px 10px; font-size: 12px; margin-top: 10px; margin-right: 8px;
+  color: var(--ink-soft); background: transparent; font-family: var(--font-ui); cursor: pointer;
+}
+.file-chip:hover { border-color: var(--ink-faint); color: var(--ink); }
+/* .icon-link removed (R-07): zero JSX callers — use `btn btn-sm`. */
+
+.person-row { display: flex; align-items: center; gap: 10px; padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.person-row .initial {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--blue-soft); color: var(--blue);
+  display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex-shrink: 0;
+}
+
+/* Canonical .two-col / .grid-2 / .upload-box (1px) live in src/styles/app.css. */
+.feedback-box { background: var(--blue-soft); border-radius: var(--radius); padding: 14px 16px; margin-top: 14px; }
+.feedback-box .who { font-size: 12px; color: var(--blue); margin-bottom: 6px; font-weight: 600; }
+
+.teacher-page form.stacked { display: flex; flex-direction: column; gap: 12px; }
+.teacher-page form.stacked label { font-size: 12.5px; color: var(--ink-soft); display: flex; flex-direction: column; gap: 5px; }
+.teacher-page form.stacked input, .teacher-page form.stacked select, .teacher-page form.stacked textarea {
+  padding: 9px 11px; border: 1px solid var(--line-strong); border-radius: var(--radius);
+  font-size: 13.5px; background: var(--paper); color: var(--ink); font-family: var(--font-ui);
+}
+.teacher-page form.stacked textarea { min-height: 80px; resize: vertical; }
+/* Canonical .form-grid-2 lives in src/styles/app.css (RED-11) — no role copy. */
+
+.item-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; background: var(--paper-raised); }
+.item-card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+.item-card .prompt { font-size: 13.5px; font-weight: 600; }
+.item-card .meta { font-size: 11.5px; color: var(--ink-faint); margin-top: 3px; }
+.item-card .lock { font-size: 11px; color: var(--ink-faint); display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+
+.key-display {
+  display: flex; align-items: center; gap: 10px;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 15px; letter-spacing: 1.5px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px; width: fit-content; max-width: 100%; word-break: break-all;
+}
+.toggle-switch { position: relative; width: 38px; height: 21px; background: var(--line-strong); border-radius: 99px; cursor: pointer; flex-shrink: 0; transition: background 150ms; border: none; padding: 0; }
+.toggle-switch.on { background: var(--green); }
+.toggle-switch .knob { position: absolute; top: 2px; left: 2px; width: 17px; height: 17px; background: var(--knob); border-radius: 50%; transition: left 150ms; }
+.toggle-switch.on .knob { left: 19px; }
+.settings-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.settings-row:last-child { border-bottom: none; }
+.settings-row .label { font-size: 13.5px; font-weight: 600; margin-bottom: 3px; }
+.settings-row .desc { font-size: 12px; color: var(--ink-faint); max-width: 420px; }
+
+.analytics-subbar { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 16px; }
+.analytics-subbar button {
+  all: unset; font-size: 12.5px; font-weight: 500; padding: 6px 13px;
+  border-radius: 99px; border: 1px solid var(--line); color: var(--ink-soft); cursor: pointer;
+}
+.analytics-subbar button:hover { border-color: var(--ink-faint); color: var(--ink); }
+.analytics-subbar button.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+.toolbar input[type="search"], .toolbar input[type="text"], .toolbar select {
+  padding: 7px 10px; border: 1px solid var(--line-strong); border-radius: 5px;
+  font-size: 13px; background: var(--paper); color: var(--ink); font-family: var(--font-ui);
+}
+.toolbar input[type="search"] { min-width: 200px; }
+.toolbar .spacer { flex: 1; }
+.toolbar .count-note { font-size: 12px; color: var(--ink-faint); }
+
+/* Canonical .pagination / .pager visuals live in src/styles/app.css —
+   the teacher-tab pagination now matches .pager exactly. */
+
+table.data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.data-table th { text-align: left; font-weight: 500; color: var(--ink-faint); font-size: 11.5px; padding: 0 10px 8px 0; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+table.data-table td { padding: 11px 10px 11px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+table.data-table tr.clickable { cursor: pointer; }
+table.data-table tr.clickable:hover td { background: var(--paper-raised); }
+
+/* Canonical .mastery-bar-track/.mastery-bar-fill/.dist-bar + .fill-*
+   tones live in src/styles/app.css — do not redefine here. */
+
+.heatmap-matrix-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-raised); }
+table.matrix { border-collapse: separate; border-spacing: 0; font-size: 12px; min-width: 100%; }
+table.matrix th, table.matrix td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 0; white-space: nowrap; }
+table.matrix thead th { background: var(--paper); font-weight: 500; color: var(--ink-soft); font-size: 11px; padding: 8px 10px; }
+table.matrix tbody th { background: var(--paper-raised); font-weight: 500; font-size: 12.5px; text-align: left; padding: 9px 12px; min-width: 170px; }
+table.matrix td { padding: 3px; }
+.matrix-cell {
+  all: unset; display: flex; align-items: center; justify-content: center;
+  min-width: 72px; height: 34px; border-radius: 4px; font-weight: 600; font-size: 12px;
+  color: var(--on-accent); cursor: pointer; width: 100%; text-align: center; font-variant-numeric: tabular-nums;
+}
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500;
+  padding: 4px 6px 4px 10px; border-radius: 99px; background: var(--paper); border: 1px solid var(--line-strong);
+}
+.chip button { all: unset; cursor: pointer; font-size: 13px; line-height: 1; padding: 1px 5px; border-radius: 99px; color: var(--ink-faint); }
+.chip button:hover { color: var(--red); }
+.comp-pick-list { max-height: 190px; overflow-y: auto; border: 1px solid var(--line); border-radius: var(--radius); padding: 6px; background: var(--paper); }
+.comp-pick-list label { display: flex; gap: 8px; align-items: center; font-size: 13px; padding: 7px 8px; border-radius: 4px; cursor: pointer; }
+.comp-pick-list label:hover { background: var(--paper-raised); }
+
+/* Canonical .drill-layout (+ 960px collapse) lives in src/styles/app.css. */
+.student-pick { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--paper-raised); }
+.student-pick button { all: unset; display: flex; width: 100%; box-sizing: border-box; text-align: left; padding: 9px 12px; font-size: 13px; cursor: pointer; border-bottom: 1px solid var(--line); }
+.student-pick button:hover { background: var(--paper); }
+.student-pick button.active { background: var(--green-soft); color: var(--green); font-weight: 600; }
+
+details.gap-group { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 8px; background: var(--paper-raised); }
+details.gap-group summary { padding: 11px 14px; cursor: pointer; font-size: 13.5px; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+details.gap-group summary::-webkit-details-marker { display: none; }
+details.gap-group summary:hover { background: var(--paper); }
+details.gap-group .inner { border-top: 1px solid var(--line); padding: 6px 14px 12px; }
+
+.gap-toggle { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.trend-legend { display: flex; gap: 14px; margin-bottom: 10px; font-size: 12px; color: var(--ink-soft); flex-wrap: wrap; }
+.trend-legend span { display: flex; align-items: center; gap: 5px; }
+.trend-legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.mod-queue-row { display: flex; gap: 14px; align-items: flex-start; padding: 14px 2px; border-bottom: 1px solid var(--line); cursor: pointer; text-decoration: none; color: inherit; }
+.mod-queue-row:hover { background: var(--paper-raised); }
+.mod-queue-row .excerpt { font-size: 13px; color: var(--ink-soft); margin-top: 4px; max-width: 520px; }
+
+/* Canonical .due-card lives in src/styles/app.css; teacher keeps the hover transition. */
+.due-card { transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1); }
+
+.score-grid-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.score-grid-table th { padding: 6px 8px; font-size: 11px; color: var(--ink-faint); font-weight: 500; text-align: left; border-bottom: 1px solid var(--line-strong); }
+.score-grid-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.score-grid-table input {
+  width: 64px; padding: 5px 7px; border: 1px solid var(--line-strong);
+  border-radius: 4px; font-size: 12.5px; background: var(--paper); color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.row-status { font-size: 11px; white-space: nowrap; }
+
+/* Canonical .checkline lives in src/styles/app.css — no role copy. */
+
+.teacher-page .btn { transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), background 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 100ms; }
+.teacher-page .btn:active { transform: translateY(1px); }
+
+/* 960px collapse for .form-grid-2 lives in src/styles/app.css (canonical). */
+
+@media (prefers-reduced-motion: reduce) {
+  .teacher-page { animation: none; }
+  .teacher-page .btn, .row-list .row, .classroom-card, .toggle-switch .knob { transition: none; }
+}

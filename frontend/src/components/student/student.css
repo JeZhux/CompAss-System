@@ -1,0 +1,157 @@
+/* CompAss student workspace — ledger language matching tokens.css + app.css.
+   Flat, bordered, radius 5px. No shadows, no gradients. Motion is restrained:
+   one enter fade + transform/opacity-only interactions, reduced-motion safe. */
+
+.student-page { animation: studentEnter 560ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes studentEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Canonical .stat-card numerals live in src/styles/app.css — do not redefine here. */
+
+/* Canonical shared rhythm (.section-head, .warn/err/ok/block/note-line,
+   .field-err, .empty) lives in src/styles/app.css — do not redefine here. */
+
+/* Canonical .crumb / .detail-head / .due-card / .row-list live in
+   src/styles/app.css. Student keeps only the hover transitions. */
+.due-card { transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1); }
+.row-list .row { transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1); }
+
+.activity-row { display: flex; gap: 12px; padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.activity-row .tag { font-size: 11px; color: var(--ink-faint); white-space: nowrap; padding-top: 1px; min-width: 110px; }
+
+/* Canonical .classroom-grid / .classroom-card / .classroom-header /
+   .tabbar live in src/styles/app.css. Student keeps the press transition. */
+.classroom-card { transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 100ms; }
+
+/* Canonical pill .filter-chips lives in src/styles/app.css — do not redefine here. */
+
+/* stream */
+.stream-item { border-bottom: 1px solid var(--line); padding: 16px 2px; }
+.stream-item .meta { font-size: 12px; color: var(--ink-faint); margin-bottom: 6px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.stream-item h4 { font-size: 14.5px; margin-bottom: 6px; font-family: var(--font-ui); font-weight: 600; }
+.stream-item p { margin: 0; color: var(--ink-soft); font-size: 13.5px; white-space: pre-wrap; }
+.file-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 5px 10px; font-size: 12px; margin-top: 10px; margin-right: 8px;
+  color: var(--ink-soft); background: transparent; font-family: var(--font-ui); cursor: pointer;
+}
+.file-chip:hover { border-color: var(--ink-faint); color: var(--ink); }
+.file-chip:disabled { opacity: 0.5; cursor: default; }
+
+/* people */
+.person-row { display: flex; align-items: center; gap: 10px; padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.person-row .initial {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--blue-soft); color: var(--blue);
+  display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; flex-shrink: 0;
+  overflow: hidden;
+}
+.person-row .initial img { width: 100%; height: 100%; object-fit: cover; }
+.person-row .photo { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+
+/* mastery */
+.mastery-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.mastery-table th {
+  text-align: left; font-weight: 500; color: var(--ink-faint); font-size: 11.5px;
+  padding: 0 8px 8px 0; border-bottom: 1px solid var(--line-strong); white-space: nowrap;
+}
+.mastery-table td { padding: 11px 8px 11px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+/* Canonical .mastery-bar-track/.mastery-bar-fill + tones, .two-col,
+   .grid-2, .upload-box (1px) live in src/styles/app.css. */
+.feedback-box { background: var(--blue-soft); border-radius: var(--radius); padding: 14px 16px; margin-top: 14px; }
+.feedback-box .who { font-size: 12px; color: var(--blue); margin-bottom: 6px; font-weight: 600; }
+.feedback-box p { margin: 0; font-size: 13px; color: var(--ink); }
+
+/* forms */
+.student-page form.stacked { display: flex; flex-direction: column; gap: 12px; }
+.student-page form.stacked label { font-size: 12.5px; color: var(--ink-soft); display: flex; flex-direction: column; gap: 5px; }
+.student-page form.stacked input, .student-page form.stacked select, .student-page form.stacked textarea {
+  padding: 9px 11px; border: 1px solid var(--line-strong); border-radius: var(--radius);
+  font-size: 13.5px; background: var(--paper); color: var(--ink); font-family: var(--font-ui);
+}
+.student-page form.stacked textarea { min-height: 80px; resize: vertical; }
+.join-input {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--line-strong); border-radius: var(--radius);
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 15px; letter-spacing: 2px; text-transform: uppercase;
+  background: var(--paper); color: var(--ink); margin-bottom: 12px; text-align: center;
+}
+
+/* taking */
+.taking-shell { max-width: 680px; }
+.item-block { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.item-block .qmeta { font-size: 11.5px; color: var(--ink-faint); margin-bottom: 8px; }
+.item-block .prompt { font-size: 15px; margin-bottom: 14px; }
+.option-row {
+  display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 13px; margin-bottom: 8px; font-size: 13.5px; cursor: pointer;
+}
+.option-row:hover { border-color: var(--ink-faint); }
+.option-row input { accent-color: var(--green); }
+textarea.essay {
+  width: 100%; min-height: 110px; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 12px; font-family: var(--font-ui); font-size: 13.5px; color: var(--ink); background: var(--paper); resize: vertical;
+}
+.taking-footer {
+  /* Contained sticky footer (RED-12): no negative margins, single scroll chain.
+     Lives inside .content padding; sticky bottom 0 with token layering. */
+  position: sticky; bottom: 0; background: var(--paper-raised); border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line); border-right: 1px solid var(--line);
+  border-top-left-radius: var(--radius); border-top-right-radius: var(--radius);
+  padding: 14px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin: 24px 0 0; z-index: var(--z-sticky-footer);
+  overscroll-behavior: contain;
+}
+.item-block { scroll-margin-bottom: 90px; }
+.save-status { font-size: 12px; color: var(--ink-faint); display: flex; align-items: center; gap: 6px; }
+.save-status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.save-status.saving .dot { background: var(--amber); }
+.save-status.error .dot { background: var(--red); }
+.timer { font-size: 13px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.timer.urgent { color: var(--red); }
+
+/* results */
+.result-summary { display: flex; gap: 28px; align-items: flex-end; margin-bottom: 8px; }
+.result-summary .big { font-family: var(--font-display); font-size: 40px; line-height: 1; }
+.result-summary .lbl { font-size: 12px; color: var(--ink-faint); margin-top: 6px; }
+.result-item { border-bottom: 1px solid var(--line); padding: 18px 2px; }
+.result-item .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+.result-item .prompt { font-size: 14px; margin-bottom: 8px; max-width: 520px; }
+.answer-line { font-size: 13px; color: var(--ink-soft); margin: 4px 0; }
+.answer-line b { color: var(--ink); font-weight: 500; }
+
+/* explain */
+.disclaimer {
+  border-left: 3px solid var(--blue); background: var(--blue-soft); padding: 11px 14px; font-size: 12.5px; color: var(--ink-soft);
+  border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 16px;
+}
+.ungrounded-flag {
+  border-left: 3px solid var(--amber); background: var(--amber-soft); padding: 11px 14px; font-size: 12.5px; color: var(--amber);
+  border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 14px;
+}
+.explanation-text { font-size: 14px; line-height: 1.7; color: var(--ink); white-space: pre-wrap; }
+.turns-left { font-size: 12px; color: var(--ink-faint); margin: 14px 0; }
+.followup-box { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; margin-top: 16px; background: var(--paper-raised); }
+.followup-box textarea {
+  width: 100%; border: 1px solid var(--line); border-radius: var(--radius); padding: 9px 11px; font-family: var(--font-ui);
+  font-size: 13px; background: var(--paper); color: var(--ink); min-height: 60px; resize: vertical;
+}
+.followup-turn { border-top: 1px solid var(--line); padding: 12px 0; font-size: 13px; }
+.followup-turn .who { font-size: 11.5px; color: var(--ink-faint); font-weight: 600; margin-bottom: 4px; }
+
+.student-page .btn { transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), background 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 100ms; }
+.student-page .btn:active { transform: translateY(1px); }
+.student-page .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+/* Canonical .skel / .skel-row (shimmer) lives in src/styles/app.css —
+   do not redefine here. */
+
+@media (max-width: 960px) {
+  .taking-footer { margin: 24px 0 0; padding: 12px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .student-page { animation: none; }
+  .student-page .btn, .row-list .row, .classroom-card { transition: none; }
+}

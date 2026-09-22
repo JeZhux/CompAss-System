@@ -1,0 +1,131 @@
+/* CompAss admin console — supplementary primitives.
+   Extends src/styles/app.css + tokens.css without overriding them.
+   Flat, bordered, radius-5px ledger language. No shadows, no gradients,
+   no glows. All colors via design tokens. */
+
+.admin-page { animation: adminEnter 560ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes adminEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Canonical .stat-card numerals live in src/styles/app.css — do not redefine here. */
+
+/* Canonical shared rhythm (.section-head, .warn/err/ok/block/note-line,
+   .field-err, .empty) lives in src/styles/app.css — do not redefine here. */
+
+/* ---------- key-value ---------- */
+.kv { display: flex; flex-direction: column; gap: 10px; }
+.kv .k { font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--ink-faint); font-weight: 600; }
+.kv .v { font-size: 13.5px; margin-top: 2px; word-break: break-word; }
+.key-display {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  padding: 10px 12px;
+  word-break: break-all;
+}
+.mono {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 12.5px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 6px;
+  word-break: break-all;
+}
+
+/* ---------- tables ---------- */
+.table-wrap { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-raised); padding: 6px 12px 12px; overflow-x: auto; }
+.table-wrap .dtable tbody tr[data-clickable="true"] { cursor: pointer; }
+/* Canonical .bar-track / .bar-fill + .fill-* tones live in src/styles/app.css. */
+
+/* Canonical .skel / .skel-row (shimmer) lives in src/styles/app.css —
+   do not redefine here. */
+
+/* ---------- rows / activity / timeline ---------- */
+/* Canonical .row-list rhythm lives in src/styles/app.css — do not redefine here. */
+.activity-row { display: flex; gap: 12px; padding: 10px 4px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.activity-row .tag { color: var(--ink-faint); font-size: 12px; white-space: nowrap; min-width: 92px; }
+.timeline { border-left: 1px solid var(--line); margin-left: 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 10px; }
+.tl-row { display: flex; gap: 12px; font-size: 13px; }
+.tl-time { color: var(--ink-faint); font-size: 12px; white-space: nowrap; min-width: 110px; }
+.tl-body { color: var(--ink-soft); }
+.tl-body b { color: var(--ink); font-weight: 600; }
+
+/* ---------- crumbs / detail head ---------- */
+/* Canonical .crumb / .detail-head / .kicker live in src/styles/app.css — do not redefine here. */
+
+/* ---------- forms ---------- */
+.form-field { margin-bottom: 12px; }
+.form-field label { display: block; font-size: 12.5px; font-weight: 500; margin-bottom: 5px; }
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+.form-field .hint { font-size: 11.5px; color: var(--ink-faint); margin-top: 4px; }
+/* Canonical .form-grid-2 lives in src/styles/app.css — do not redefine here. */
+/* Canonical pill .filter-chips lives in src/styles/app.css — do not redefine here. */
+
+/* ---------- steps (sheet wizard) ---------- */
+.steps { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.step { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-faint); font-weight: 500; }
+.step .dot {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; background: var(--paper-raised); color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.step.current { color: var(--ink); }
+.step.current .dot { background: var(--green); border-color: var(--green); color: var(--on-accent); }
+.step.done { color: var(--green); }
+.step.done .dot { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+.step-sep { width: 26px; height: 1px; background: var(--line-strong); }
+/* Canonical .upload-box (1px) lives in src/styles/app.css — do not redefine here. */
+
+/* ---------- tree (org) ---------- */
+.tree { display: flex; flex-direction: column; gap: 8px; }
+.tree details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-raised); }
+.tree summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; font-size: 13.5px; font-weight: 600; }
+.tree summary::-webkit-details-marker { display: none; }
+.tree summary:hover { background: var(--paper); }
+.tree summary .arrow { color: var(--ink-faint); font-size: 12px; }
+.tree-body { border-top: 1px solid var(--line); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.leaf-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); font-size: 13px; flex-wrap: wrap; }
+.leaf-meta { color: var(--ink-faint); font-size: 12px; }
+
+/* ---------- heatmap ---------- */
+.heatmap { display: grid; gap: 6px; margin-bottom: 8px; overflow-x: auto; }
+.hcell {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  padding: 10px 8px;
+  font-size: 13px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  min-width: 72px;
+}
+.hcell.head { background: transparent; border-color: transparent; font-size: 12px; font-weight: 600; color: var(--ink-soft); }
+.hcell.corner { background: transparent; border-color: transparent; }
+
+/* ---------- grids ---------- */
+/* Canonical .grid-2/.grid-3/.grid-4 (+ 960px collapse) live in src/styles/app.css. */
+.admin-stack { display: flex; flex-direction: column; gap: 14px; }
+.admin-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* 960px collapse + reduced-motion live in src/styles/app.css (canonical). */
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-page { animation: none; }
+}
